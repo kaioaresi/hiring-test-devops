@@ -17,3 +17,23 @@ O teste deverá ser entregue **"pronto para uso"**, onde poderemos facilmente re
 - Boas práticas e padrões são **imprescindíveis** em todos os processos!
 
 Para realizar o teste, deve-se fazer um fork deste repositório, realizar as alteraçoes necessárias e enviar o link do seu fork para [jacqueline.mello@avecbrasil.com.br](mailto:jacqueline.mello@avecbrasil.com.br).
+
+---
+---
+
+# Instanlando k8s
+
+> Um script é executado no momento da criação de cada instancia.
+
+## Master
+
+```
+kubeadm config images pull
+sudo kubeadm init
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+kubectl get nodes
+kubeadm token create --print-join-command
+```
