@@ -171,43 +171,9 @@ helm install --name jenkins --namespace cicd stable/jenkins -f jenkins_values.ya
 ### Credenciais `kubectl`
 
 ```
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: jenkins
-
----
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-  name: jenkins
-rules:
-- apiGroups: [""]
-  resources: ["services","pods","secrets","configmaps","secrets","deployments","services"]
-  verbs: ["create","delete","get","list","patch","update","watch"]
-- apiGroups: [""]
-  resources: ["pods/exec"]
-  verbs: ["create","delete","get","list","patch","update","watch"]
-- apiGroups: [""]
-  resources: ["pods/log"]
-  verbs: ["get","list","watch"]
-- apiGroups: [""]
-  resources: ["secrets"]
-  verbs: ["get"]
-
----
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: RoleBinding
-metadata:
-  name: jenkins
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: jenkins
-subjects:
-- kind: ServiceAccount
-  name: jenkins
+kubectl -n default create serviceaccount jenkins
+kubectl -n default create rolebinding jenkins-binding --clusterrole=cluster-admin --serviceaccount=default:jenkins
+kubectl -n default create rolebinding jenkins-binding --clusterrole=cluster-admin --serviceaccount=default:jenkins
 ```
 
 ```
