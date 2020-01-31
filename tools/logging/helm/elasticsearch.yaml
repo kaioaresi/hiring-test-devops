@@ -1,0 +1,8 @@
+data:
+  persistence:
+    enabled: false
+  terminationGracePeriodSeconds: 0
+
+master:
+  persistence:
+    enabled: false

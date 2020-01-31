@@ -1,0 +1,19 @@
+master:
+  persistence:
+    enabled: false
+  replicas: 2
+
+cluster:
+  MINIMUM_MASTER_NODES: 1
+
+data:
+  persistence:
+    enabled: false
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 2048Mi
+    requests:
+      cpu: 300m
+      memory: 1024Mi

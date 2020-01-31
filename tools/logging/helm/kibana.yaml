@@ -1,0 +1,7 @@
+env:
+  ELASTICSEARCH_URL: http://service/elasticsearch-client.logging.svc.cluster.local:9200
+  SERVER_BASEPATH: /api/v1/namespaces/logging/services/kibana/proxy
+
+service:
+  type: NodePort
+  nodePort: 31030

@@ -1,0 +1,19 @@
+master:
+  adminPassword: "52106253"
+  serviceType: NodePort
+  nodePort: 31040
+  installPlugins:
+    - kubernetes:1.21.2
+    - workflow-job:2.36
+    - workflow-aggregator:2.6
+    - credentials-binding:1.20
+    - git:4.0.0
+    - blueocean:1.22.0
+    - simple-theme-plugin:0.5.1
+    - kubernetes-cli:1.7.0
+
+agent:
+  enabled: false
+
+persistence:
+  enabled: false

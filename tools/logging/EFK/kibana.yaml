@@ -1,0 +1,6 @@
+service:
+  type: NodePort
+  nodePort: 31030
+
+env:
+  ELASTICSEARCH_HOSTS: http://elasticsearch-client:9200

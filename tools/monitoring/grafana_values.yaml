@@ -1,0 +1,65 @@
+service:
+  type: NodePort
+  nodePort: 31020
+
+adminPassword: "52106253"
+
+datasources:
+ datasources.yaml:
+   apiVersion: 1
+   datasources:
+   - name: Prometheus
+     type: prometheus
+     url: http://prometheus-server
+     access: proxy
+     isDefault: true
+
+
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: 'default'
+      orgId: 1
+      folder: ''
+      type: file
+      disableDeletion: false
+      editable: true
+      options:
+        path: /var/lib/grafana/dashboards/default
+
+dashboards:
+   default:
+     kube-nodes:
+       gnetId: 11074
+       revision: 14
+       datasource: Prometheus
+     kube-statefulset:
+       gnetId: 8588
+       revision: 11
+       datasource: Prometheus
+     kube-cluster:
+       gnetId: 7249
+       datasource: Prometheus
+     kube-prometheus-monitoring:
+       gnetId: 1621
+       datasource: Prometheus
+     kube-memory-ns:
+       gnetId: 10551
+       datasource: Prometheus
+     kube-cluster-ns:
+       gnetId: 10000
+       revision: 4
+       datasource: Prometheus
+     kube-deployment:
+       gnetId: 10858
+       datasource: Prometheus
+     kube-app-status:
+       gnetId: 10494
+       datasource: Prometheus
+     kube-all-metrics:
+       gnetId: 10185
+       datasource: Prometheus
+     kube-geral-cluster:
+       gnetId: 7824
+       datasource: Prometheus
