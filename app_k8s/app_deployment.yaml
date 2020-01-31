@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avec-deployment
+  labels:
+    app: avec
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: avec
+  template:
+    metadata:
+      labels:
+        app: avec
+    spec:
+      containers:
+      - name: avec
+        image: kaioaresi/avec:latest
+        ports:
+        - containerPort: 8000

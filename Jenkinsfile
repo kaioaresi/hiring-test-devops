@@ -34,5 +34,20 @@ spec:
       }
     }
 
+    stage('Deploy') {
+      container('kubectl-container'){
+        withKubeConfig([credentialsId: 'jenkins-sa', serverUrl: env.K8S_URL]) {
+          parallel(
+            app_deployment: {
+              sh 'kubectl create -f app_k8s/app_deployment.yaml'
+            },
+            app_service: {
+              sh 'kubectl create -f app_k8s/app_service.yaml'
+            }
+          )
+        }
+      }
+    }
+
   }//node
 }
