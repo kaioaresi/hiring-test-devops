@@ -80,7 +80,7 @@ helm tiller start # por defaul é sempre criado no ns `kube-system`
 
 Precisamos apenas criar o ns
 
-> Dir: `charts_tools/monitoring/`
+> Dir: `tools/monitoring/`
 
 ```
 kubectl create ns monitoring
@@ -117,12 +117,16 @@ Grafana: http://<IP>:31020
 
 # Logging
 
-> Dir: `charts_tools/logging/EFK`
+> Dir: `tools/logging/`
+
+```
+kubectl create ns logging
+```
 
 ## Elasticsearch
 
 ```
-helm install stable/elasticsearch --namespace logging --name elasticsearch -f elastic.yaml
+helm install stable/elasticsearch --namespace logging --name elasticsearch -f elasticsearch.yaml
 ```
 
 ## Kibana
@@ -149,7 +153,7 @@ Kibana: http://<IP>:31030
 
 ### Jenkins
 
-Dir: `charts_tools/cicd/`
+Dir: `tools/cicd/`
 
 ```
 helm install --name jenkins --namespace cicd stable/jenkins -f jenkins_values.yaml
