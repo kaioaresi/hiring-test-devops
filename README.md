@@ -126,7 +126,7 @@ kubectl create ns logging
 ## Elasticsearch
 
 ```
-helm install stable/elasticsearch --namespace logging --name elasticsearch -f elasticsearch.yaml
+helm install stable/elasticsearch --namespace logging --name elasticsearch -f elastic.yaml
 ```
 
 ## Kibana
@@ -151,13 +151,16 @@ Kibana: http://<IP>:31030
 
 ## CI/CD
 
+```
+kubectl create ns cicd
+```
+
 ### Jenkins
 
 Dir: `tools/cicd/`
 
 ```
 helm install --name jenkins --namespace cicd stable/jenkins -f jenkins_values.yaml
-helm upgrade jenkins stable/jenkins -f jenkins_values.yaml
 ```
 
 ### Credenciais `kubectl`
