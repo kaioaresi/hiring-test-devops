@@ -29,6 +29,7 @@ spec:
       container('docker-container'){
         withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USER')]) {
           sh 'docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}'
+          sh 'docker build -t ${DOCKER_HUB_USER}/avec ./app'
           sh "docker image push ${DOCKER_HUB_USER}/avec"
         }
       }

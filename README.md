@@ -19,6 +19,12 @@ O teste deverá ser entregue **"pronto para uso"**, onde poderemos facilmente re
 Para realizar o teste, deve-se fazer um fork deste repositório, realizar as alteraçoes necessárias e enviar o link do seu fork para [jacqueline.mello@avecbrasil.com.br](mailto:jacqueline.mello@avecbrasil.com.br).
 
 ---
+# App
+
+Endereço: <IP>:31000
+
+---
+
 # Terraform
 
 # Procedimentos de instalação
@@ -205,8 +211,8 @@ subjects:
 ```
 
 ```
-kubectl -n cicd get sa jenkins -o yaml
-kubectl -n cicd describe secrets jenkins-token-XXXXX
+kubectl -n kube-system get sa jenkins -o yaml
+kubectl -n kube-system describe secrets jenkins-token-XXXXX
 ```
 
 ---
