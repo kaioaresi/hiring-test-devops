@@ -178,7 +178,7 @@ metadata:
   name: jenkins
 rules:
 - apiGroups: [""]
-  resources: ["pods"]
+  resources: ["services","pods","secrets","configmaps","secrets","deployments","services"]
   verbs: ["create","delete","get","list","patch","update","watch"]
 - apiGroups: [""]
   resources: ["pods/exec"]

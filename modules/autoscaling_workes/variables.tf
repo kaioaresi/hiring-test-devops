@@ -1,5 +1,5 @@
 variable "INSTANCE_TYPE" {
-  default = "t2.medium"
+  default = "m5a.large"
 }
 
 variable "IMAGE_ID" {
