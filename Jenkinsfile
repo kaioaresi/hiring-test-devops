@@ -40,10 +40,10 @@ spec:
         withKubeConfig([credentialsId: 'jenkins-sa', serverUrl: env.K8S_URL]) {
           parallel(
             app_deployment: {
-              sh 'kubectl -n default create -f app_k8s/app_deployment.yaml'
+              sh 'kubectl -n default apply -f app_k8s/app_deployment.yaml'
             },
             app_service: {
-              sh 'kubectl -n default create -f app_k8s/app_service.yaml'
+              sh 'kubectl -n default apply -f app_k8s/app_service.yaml'
             }
           )
         }
