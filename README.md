@@ -19,17 +19,6 @@ O teste deverá ser entregue **"pronto para uso"**, onde poderemos facilmente re
 Para realizar o teste, deve-se fazer um fork deste repositório, realizar as alteraçoes necessárias e enviar o link do seu fork para [jacqueline.mello@avecbrasil.com.br](mailto:jacqueline.mello@avecbrasil.com.br).
 
 ---
-
-# App
-
-
-
-
-
-
-
-
----
 # Terraform
 
 # Procedimentos de instalação
