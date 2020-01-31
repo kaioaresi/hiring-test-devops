@@ -1,16 +1,6 @@
-provider "aws" {
-  region = "${var.REGION}"
-}
-
-data "aws_ami" "ami_ubuntu" {
-  owners      = ["amazon"]
-  most_recent = true
-  name_regex  = "ubuntu"
-}
-
 resource "aws_instance" "master" {
 
-  ami             = "${data.aws_ami.ami_ubuntu.id}"
+  ami             = "${var.AMI}"
   instance_type   = "${var.INSTANCE_TYPE_MASTER}"
   key_name        = "lab"
   subnet_id       = "${var.SUBNET_ID}"
@@ -22,9 +12,9 @@ resource "aws_instance" "master" {
     volume_size = "30"
   }
 
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.master.private_ip} >> private_ips.txt"
-  }
+  #provisioner "local-exec" {
+  #  command = "echo ${aws_instance.master.private_ip} >> private_ips.txt"
+  #}
 
   lifecycle {
     ignore_changes        = all

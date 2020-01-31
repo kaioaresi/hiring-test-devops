@@ -14,7 +14,6 @@ remove_apache2() {
   logger "######## Done iniciada ########"
 }
 
-
 add_modules() {
 
   modules_k8s=$(echo -e "br_netfilter\nip_vs_rr\nip_vs_wrr\nip_vs_sh\nnf_conntrack_ipv4\nip_vs" > /etc/modules-load.d/k8s.conf)

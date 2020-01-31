@@ -1,12 +1,6 @@
-data "aws_ami" "ami_ubuntu" {
-  owners      = ["amazon"]
-  most_recent = true
-  name_regex  = "ubuntu"
-}
-
 resource "aws_launch_template" "workes" {
   name_prefix   = "workes-"
-  image_id      = "${data.aws_ami.ami_ubuntu.id}"
+  image_id      = "${var.IMAGE_ID}"
   instance_type = "${var.INSTANCE_TYPE}"
   key_name      = "lab"
   user_data     = "${base64encode(file("${path.module}/setup.sh"))}"

@@ -1,5 +1,9 @@
 variable "INSTANCE_TYPE" {
-  default = "m5a.large"
+  default = "t2.medium"
+}
+
+variable "IMAGE_ID" {
+  default = "ami-0ff994e0f64f369ed"
 }
 
 variable "TAGS" {
